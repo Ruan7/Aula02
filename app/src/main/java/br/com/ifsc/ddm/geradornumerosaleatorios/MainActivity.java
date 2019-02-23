@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,9 +18,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void alteraTexto(View view) {
 
-       TextView text = (TextView) findViewById(R.id.text);
-        TextView texto = findViewById(R.id.editText2);
+       Random numeroRandom = new Random();
 
-        text.setText(texto.getText());
+       TextView text = (TextView) findViewById(R.id.textView6);
+       TextView texto1 = findViewById(R.id.editText2);
+       TextView texto2 = findViewById(R.id.editText3);
+
+       int a = Integer.parseInt(texto1.getText().toString());
+       int b = Integer.parseInt(texto2.getText().toString());
+
+       int randomNum =  ((int)(a + Math.random() * (b - a + 1)));
+
+       String valor = String.valueOf(randomNum);
+
+       text.setText(valor);
     }
 }
